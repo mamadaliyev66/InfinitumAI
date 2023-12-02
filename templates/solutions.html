@@ -1,0 +1,1040 @@
+{% extends 'base.html' %}
+  {% block title %}Solutions{% endblock %}
+{% block head %}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet" />
+  <link rel="shortcut icon"
+    href="https://firebasestorage.googleapis.com/v0/b/infinitumai.appspot.com/o/white_logo_transparent.ico?alt=media&token=f0a4ff7b-a6cc-4e87-b3a4-b366ea5352d2"
+    type="image/x-icon" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+
+    body,
+    html {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      min-width: 100%;
+      min-height: 100%;
+    }
+
+    main {
+      z-index: 1;
+    }
+
+    body {
+      background: #000;
+    }
+
+
+    body::after {
+      display: block;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      content: "";
+    }
+
+    /* Add your navbar styles here */
+    .nav-bar {
+      position: fixed;
+      z-index: 99999;
+      /* Ensure the button is above other elements */
+
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #111827;
+      transition: top 0.3s;
+      /* Smooth transition for the navbar */
+    }
+
+    .hidden {
+      top: -100px;
+      /* Hides the navbar above the viewport */
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 12px;
+      /* Width of the scrollbar */
+      height: 2px;
+      /* Height of the scrollbar */
+      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+      /* Shadow for the scrollbar */
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      /* Track color */
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      /* Thumb color */
+      border-radius: 6px;
+      /* Roundness of the thumb */
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+      /* Thumb color on hover */
+    }
+
+    /* For Firefox */
+    /* You can modify these styles to suit your design */
+    /* Firefox uses a different approach to style scrollbars */
+    /* You can adjust colors, widths, etc. as desired */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #0074d9;
+    }
+
+    *::-webkit-scrollbar {
+      width: 4px;
+      /* Width of the scrollbar */
+      height: 2px;
+      /* Height of the scrollbar */
+      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+      /* Shadow for the scrollbar */
+    }
+
+    *::-webkit-scrollbar-track {
+      background: transparent;
+      /* Track color */
+    }
+
+    *::-webkit-scrollbar-thumb {
+      background: #fff;
+      /* Thumb color */
+      border-radius: 6px;
+      /* Roundness of the thumb */
+    }
+
+    *::-webkit-scrollbar-thumb:hover {
+      background: #555;
+      /* Thumb color on hover */
+    }
+    [x-cloak] { display: none; }
+    /* End */
+  </style>
+{% endblock %}
+{% block content %}
+  <main >
+   
+    <div class="object-cover w-full bg-center bg-cover h-[35rem] "
+    style="background-image: url(https://i.postimg.cc/P5gCz1Wc/pexels-marc-mueller-380769.jpg);">
+    <div class="flex items-center justify-center w-full h-full bg-blue-800 bg-opacity-50 ">
+        <div class="text-center">
+            <h1 class="text-2xl font-semibold text-white uppercase lg:text-3xl">Solutions And Products </h1>
+        </div>
+    </div>
+</div>
+
+<!-- solutions section -->
+<section class="flex items-center lg:h-screen font-poppins  ">
+    <div class="justify-center max-w-6xl px-4 py-4 mx-auto lg:py-0">
+<h1 class="text-gray-900 text-6xl text-center pt-20 pb-16">Solutions
+        </h1>
+        <h1 class="text-center">
+            <b>We are developing 3 products </b>: Early Fire Detection (EFD), Attendance Assisant and Plant Disease:
+        </h1>
+        <div class="flex flex-wrap justify-center -mx-3 pt-11">
+            
+            <div class="w-full px-3 mb-6 lg:px-2 md:w-1/2 lg:w-1/3">
+                <div class="p-5 bg-white rounded-b shadow ">
+                    <a href="#"
+                        class="px-4 py-1 text-sm text-white rounded-full   bg-[#0074d9]">1</a>
+                    <h2 class="my-3 text-2xl font-bold ">EFD</h2>
+                    <p class="mb-3 leading-loose text-gray-500 ">
+
+                        Deploy an Early Fire Detection System that integrates advanced algorithms and sensor technology to proactively identify fire hazards, preventing disasters and ensuring swift response.
+
+                    </p>
+                    
+                </div>
+            </div>
+            <div class="w-full px-3 mb-6 lg:px-2 md:w-1/2 lg:w-1/3">
+                <div class="p-5 bg-white rounded-b shadow ">
+                    <a href="#"
+                        class="px-4 py-1 text-sm text-white rounded-full   bg-[#0074d9]">
+                        2</a>
+                    <h2 class="my-3 text-2xl font-bold ">Attendance Assisant</h2>
+                    <p class="mb-3 leading-loose text-gray-500 ">
+                        Implement an Attendance Assistant system utilizing facial recognition and real-time monitoring to streamline attendance tracking, improving efficiency and productivity.
+
+                    </p>
+                   
+                </div>
+            </div>
+            <div class="w-full px-3 mb-6 lg:px-2 md:w-1/2 lg:w-1/3">
+                <div class="p-5 bg-white rounded-b shadow ">
+                    <a href="#"
+                        class="px-4 py-1 text-sm text-white rounded-full   bg-[#0074d9]">
+                        3</a>
+                    <h2 class="my-3 text-2xl font-bold ">Plants Disease</h2>
+                    <p class="mb-3 leading-loose text-gray-500 ">
+                        Develop a Plant Disease Detection AI that uses innovative imaging technology to diagnose and address plant health issues early, aiding farmers in maintaining healthy crops and promoting sustainable agriculture.
+
+                    </p>
+                    
+                </div>
+            </div>
+
+            <div class="w-full px-3 mb-6 lg:px-2 md:w-1/2 lg:w-1/3">
+                <div class="p-5 bg-white rounded-b shadow ">
+                    <a href="#"
+                        class="px-4 py-1 text-sm text-white rounded-full   bg-[#0074d9]">
+                        4</a>
+                    <h2 class="my-3 text-2xl font-bold ">Job Recommendation System</h2>
+                    <p class="mb-3 leading-loose text-gray-500 ">A Job Recommendation System powered by AI offers a solution to the complexities of job hunting and recruitment by intelligently matching candidates with suitable job openings.
+</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- Products Section -->
+
+<section class="flex items-center bg-gray-200 lg:h-screen font-poppins dark:bg-gray-800 ">
+    <div class="justify-center sm:ml-9 sm:mr-9 px-4 py-4 mx-auto lg:py-0">
+        <h1 class="text-6xl text-white text-center pb-9 ">
+            Products
+        </h1>
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-4 md:grid-cols-2">
+           
+            <div class="relative bg-white rounded-2xl dark:bg-gray-700">
+                <div class="w-full h-56 px-4 pt-4">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/infinitumai.appspot.com/o/fireDetected.png?alt=media&token=3d7641d6-01be-4a40-9b73-081526a62b46" alt=""
+                        class="object-cover w-full h-full rounded-lg ">
+                </div>
+                <div>
+                    <div class="p-4">
+                        <div class="mb-3">
+                            <a href="">
+                                <h2 class="text-2xl font-semibold dark:text-gray-300">
+                                    Early Fire Detection (EFD)
+                            </a>
+                        </div>
+                        <p class="pb-16 text-base font-base text-gray-700 dark:text-gray-400">
+                            Our primary duty lies in preemptive safety measures. We're dedicated to developing and deploying AI systems that swiftly and accurately identify fire hazards, ensuring early detection and...
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-end ">
+                        <a href="{% url 'efds' %}"
+                            class="absolute bottom-0 right-0 px-3 py-4 text-sm text-gray-100 bg-indigo-600 rounded-tl-2xl rounded-br-2xl hover:bg-indigo-700 hover:text-gray-100">
+                            Find out more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="relative bg-white rounded-2xl dark:bg-gray-700">
+                <div class="w-full h-56 px-4 pt-4 ">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/infinitumai.appspot.com/o/student-management.png?alt=media&token=07096d82-172f-48f0-8f50-52f6091f7aa8" alt=""
+                        class="object-cover w-full h-full rounded-lg ">
+                </div>
+                <div>
+                    <div class="p-4">
+                        <div class="mb-3">
+                            <a href="">
+                                <h2 class="text-2xl font-semibold dark:text-gray-300">
+                                    Attendance Assisant
+                                </h2>
+                            </a>
+                        </div>
+                        <p class="pb-16 text-base font-base text-gray-700 dark:text-gray-400">
+                            Ensuring efficient workforce management is our responsibility. We're committed to providing an Attendance Assistant that simplifies attendance tracking, boosts productivity, and ...
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-end ">
+                        <a href="{% url 'atendance' %}"
+                            class="absolute bottom-0 right-0 px-3 py-4 text-sm text-gray-100 bg-indigo-600 rounded-tl-2xl rounded-br-2xl hover:bg-indigo-700 hover:text-gray-100">
+                            Find out more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="relative bg-white rounded-2xl dark:bg-gray-700">
+                <div class="w-full h-56 px-4 pt-4 ">
+                    <img src="https://www.rp.edu.sg/images/default-source/industry-library/otd/projects/computer-vision-and-video-analytics-for-plant-growth-and-plant-disease.jpg" alt=""
+                        class="object-cover w-full h-full rounded-lg ">
+                </div>
+                <div>
+                    <div class="p-4">
+                        <div class="mb-3">
+                            <a href="">
+                                <h2 class="text-2xl font-semibold dark:text-gray-300">
+                                    Plants Disease
+                                </h2>
+                            </a>
+                        </div>
+                        <p class="pb-16 text-base font-base text-gray-700 dark:text-gray-400">
+                            Supporting crop health and agriculture is crucial. Our duty involves providing farmers with reliable Plant Disease Detection AI, helping them identify  ...
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-end ">
+                        <a href="{% url 'plant_disease' %}"
+                            class="absolute bottom-0 right-0 px-3 py-4 text-sm text-gray-100 bg-indigo-600 rounded-tl-2xl rounded-br-2xl hover:bg-indigo-700 hover:text-gray-100">
+                            Find out more</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative bg-white rounded-2xl dark:bg-gray-700">
+                <div class="w-full h-56 px-4 pt-4 ">
+                    <img src="https://miro.medium.com/v2/resize:fit:626/1*Jog6mtQAGB8p8_ieITAhXw.jpeg" alt=""
+                        class="object-cover w-full h-full rounded-lg ">
+                </div>
+                <div>
+                    <div class="p-4">
+                        <div class="mb-3">
+                            <a href="">
+                                <h2 class="text-2xl font-semibold dark:text-gray-300">
+                                    Job Recommondation System
+                                </h2>
+                            </a>
+                        </div>
+                        <p class="pb-16 text-base font-base text-gray-700 dark:text-gray-400">
+Job Recommendation System serves as a valuable tool in streamlining the job search process, providing personalized and relevant recommendations to job seekers while assisting employers in finding well-matched candidates efficiently and effectively                        </p>
+                    </div>
+                    <div class="flex items-center justify-end ">
+                        <a href="{% url 'jrs' %}"
+                            class="absolute bottom-0 right-0 px-3 py-4 text-sm text-gray-100 bg-indigo-600 rounded-tl-2xl rounded-br-2xl hover:bg-indigo-700 hover:text-gray-100">
+                            Find out more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+<!-- order section -->
+    
+<section
+class="overflow-hidden pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]  text-gray-600"
+>
+<div class="container mx-auto">
+   <div class="flex flex-wrap items-center justify-between -mx-4">
+      <div class="w-full px-4 lg:w-6/12">
+         <div class="flex items-center -mx-3 sm:-mx-4">
+            <div class="w-full px-3 sm:px-4 xl:w-1/2">
+               <div class="py-3 sm:py-4">
+                  <img
+                            src="https://static.vecteezy.com/system/resources/previews/011/426/954/original/flame-in-house-remote-notification-smart-home-high-tech-fire-alarm-system-fire-prevention-methods-smoke-and-fire-alarm-concept-flat-modern-illustration-vector.jpg"
+                     alt=""
+                     class="w-full rounded-2xl"
+                     />
+               </div>
+               <div class="py-3 sm:py-4">
+                  <img
+                            src="https://firebasestorage.googleapis.com/v0/b/infinitumai.appspot.com/o/student-management.png?alt=media&token=07096d82-172f-48f0-8f50-52f6091f7aa8"
+                     alt=""
+                     class="w-full rounded-2xl"
+                     />
+               </div>
+            </div>
+            <div class="w-full px-3 sm:px-4 xl:w-1/2">
+               <div class="relative z-10 my-4">
+                  <img
+                            src="https://www.rp.edu.sg/images/default-source/industry-library/otd/projects/computer-vision-and-video-analytics-for-plant-growth-and-plant-disease.jpg"
+                     alt=""
+                     class="w-full rounded-2xl"
+                     />
+                  <span class="absolute -right-7 -bottom-7 z-[-1]">
+                     <svg
+                        width="134"
+                        height="106"
+                        viewBox="0 0 134 106"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        >
+                        <circle
+                           cx="1.66667"
+                           cy="104"
+                           r="1.66667"
+                           transform="rotate(-90 1.66667 104)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="16.3333"
+                           cy="104"
+                           r="1.66667"
+                           transform="rotate(-90 16.3333 104)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="31"
+                           cy="104"
+                           r="1.66667"
+                           transform="rotate(-90 31 104)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="45.6667"
+                           cy="104"
+                           r="1.66667"
+                           transform="rotate(-90 45.6667 104)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="60.3334"
+                           cy="104"
+                           r="1.66667"
+                           transform="rotate(-90 60.3334 104)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="88.6667"
+                           cy="104"
+                           r="1.66667"
+                           transform="rotate(-90 88.6667 104)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="117.667"
+                           cy="104"
+                           r="1.66667"
+                           transform="rotate(-90 117.667 104)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="74.6667"
+                           cy="104"
+                           r="1.66667"
+                           transform="rotate(-90 74.6667 104)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="103"
+                           cy="104"
+                           r="1.66667"
+                           transform="rotate(-90 103 104)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="132"
+                           cy="104"
+                           r="1.66667"
+                           transform="rotate(-90 132 104)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="1.66667"
+                           cy="89.3333"
+                           r="1.66667"
+                           transform="rotate(-90 1.66667 89.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="16.3333"
+                           cy="89.3333"
+                           r="1.66667"
+                           transform="rotate(-90 16.3333 89.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="31"
+                           cy="89.3333"
+                           r="1.66667"
+                           transform="rotate(-90 31 89.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="45.6667"
+                           cy="89.3333"
+                           r="1.66667"
+                           transform="rotate(-90 45.6667 89.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="60.3333"
+                           cy="89.3338"
+                           r="1.66667"
+                           transform="rotate(-90 60.3333 89.3338)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="88.6667"
+                           cy="89.3338"
+                           r="1.66667"
+                           transform="rotate(-90 88.6667 89.3338)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="117.667"
+                           cy="89.3338"
+                           r="1.66667"
+                           transform="rotate(-90 117.667 89.3338)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="74.6667"
+                           cy="89.3338"
+                           r="1.66667"
+                           transform="rotate(-90 74.6667 89.3338)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="103"
+                           cy="89.3338"
+                           r="1.66667"
+                           transform="rotate(-90 103 89.3338)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="132"
+                           cy="89.3338"
+                           r="1.66667"
+                           transform="rotate(-90 132 89.3338)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="1.66667"
+                           cy="74.6673"
+                           r="1.66667"
+                           transform="rotate(-90 1.66667 74.6673)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="1.66667"
+                           cy="31.0003"
+                           r="1.66667"
+                           transform="rotate(-90 1.66667 31.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="16.3333"
+                           cy="74.6668"
+                           r="1.66667"
+                           transform="rotate(-90 16.3333 74.6668)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="16.3333"
+                           cy="31.0003"
+                           r="1.66667"
+                           transform="rotate(-90 16.3333 31.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="31"
+                           cy="74.6668"
+                           r="1.66667"
+                           transform="rotate(-90 31 74.6668)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="31"
+                           cy="31.0003"
+                           r="1.66667"
+                           transform="rotate(-90 31 31.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="45.6667"
+                           cy="74.6668"
+                           r="1.66667"
+                           transform="rotate(-90 45.6667 74.6668)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="45.6667"
+                           cy="31.0003"
+                           r="1.66667"
+                           transform="rotate(-90 45.6667 31.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="60.3333"
+                           cy="74.6668"
+                           r="1.66667"
+                           transform="rotate(-90 60.3333 74.6668)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="60.3333"
+                           cy="30.9998"
+                           r="1.66667"
+                           transform="rotate(-90 60.3333 30.9998)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="88.6667"
+                           cy="74.6668"
+                           r="1.66667"
+                           transform="rotate(-90 88.6667 74.6668)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="88.6667"
+                           cy="30.9998"
+                           r="1.66667"
+                           transform="rotate(-90 88.6667 30.9998)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="117.667"
+                           cy="74.6668"
+                           r="1.66667"
+                           transform="rotate(-90 117.667 74.6668)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="117.667"
+                           cy="30.9998"
+                           r="1.66667"
+                           transform="rotate(-90 117.667 30.9998)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="74.6667"
+                           cy="74.6668"
+                           r="1.66667"
+                           transform="rotate(-90 74.6667 74.6668)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="74.6667"
+                           cy="30.9998"
+                           r="1.66667"
+                           transform="rotate(-90 74.6667 30.9998)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="103"
+                           cy="74.6668"
+                           r="1.66667"
+                           transform="rotate(-90 103 74.6668)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="103"
+                           cy="30.9998"
+                           r="1.66667"
+                           transform="rotate(-90 103 30.9998)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="132"
+                           cy="74.6668"
+                           r="1.66667"
+                           transform="rotate(-90 132 74.6668)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="132"
+                           cy="30.9998"
+                           r="1.66667"
+                           transform="rotate(-90 132 30.9998)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="1.66667"
+                           cy="60.0003"
+                           r="1.66667"
+                           transform="rotate(-90 1.66667 60.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="1.66667"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 1.66667 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="16.3333"
+                           cy="60.0003"
+                           r="1.66667"
+                           transform="rotate(-90 16.3333 60.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="16.3333"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 16.3333 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="31"
+                           cy="60.0003"
+                           r="1.66667"
+                           transform="rotate(-90 31 60.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="31"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 31 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="45.6667"
+                           cy="60.0003"
+                           r="1.66667"
+                           transform="rotate(-90 45.6667 60.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="45.6667"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 45.6667 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="60.3333"
+                           cy="60.0003"
+                           r="1.66667"
+                           transform="rotate(-90 60.3333 60.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="60.3333"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 60.3333 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="88.6667"
+                           cy="60.0003"
+                           r="1.66667"
+                           transform="rotate(-90 88.6667 60.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="88.6667"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 88.6667 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="117.667"
+                           cy="60.0003"
+                           r="1.66667"
+                           transform="rotate(-90 117.667 60.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="117.667"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 117.667 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="74.6667"
+                           cy="60.0003"
+                           r="1.66667"
+                           transform="rotate(-90 74.6667 60.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="74.6667"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 74.6667 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="103"
+                           cy="60.0003"
+                           r="1.66667"
+                           transform="rotate(-90 103 60.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="103"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 103 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="132"
+                           cy="60.0003"
+                           r="1.66667"
+                           transform="rotate(-90 132 60.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="132"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 132 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="1.66667"
+                           cy="45.3333"
+                           r="1.66667"
+                           transform="rotate(-90 1.66667 45.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="1.66667"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 1.66667 1.66683)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="16.3333"
+                           cy="45.3333"
+                           r="1.66667"
+                           transform="rotate(-90 16.3333 45.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="16.3333"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 16.3333 1.66683)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="31"
+                           cy="45.3333"
+                           r="1.66667"
+                           transform="rotate(-90 31 45.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="31"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 31 1.66683)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="45.6667"
+                           cy="45.3333"
+                           r="1.66667"
+                           transform="rotate(-90 45.6667 45.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="45.6667"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 45.6667 1.66683)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="60.3333"
+                           cy="45.3338"
+                           r="1.66667"
+                           transform="rotate(-90 60.3333 45.3338)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="60.3333"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 60.3333 1.66683)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="88.6667"
+                           cy="45.3338"
+                           r="1.66667"
+                           transform="rotate(-90 88.6667 45.3338)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="88.6667"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 88.6667 1.66683)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="117.667"
+                           cy="45.3338"
+                           r="1.66667"
+                           transform="rotate(-90 117.667 45.3338)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="117.667"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 117.667 1.66683)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="74.6667"
+                           cy="45.3338"
+                           r="1.66667"
+                           transform="rotate(-90 74.6667 45.3338)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="74.6667"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 74.6667 1.66683)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="103"
+                           cy="45.3338"
+                           r="1.66667"
+                           transform="rotate(-90 103 45.3338)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="103"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 103 1.66683)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="132"
+                           cy="45.3338"
+                           r="1.66667"
+                           transform="rotate(-90 132 45.3338)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="132"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 132 1.66683)"
+                           fill="#3056D3"
+                           />
+                     </svg>
+                  </span>
+               </div>
+            </div>
+         </div>
+      </div>
+               
+               <div class="w-full px-4 lg:w-1/2 xl:w-5/12">
+         <div class="mt-10 lg:mt-0">
+            
+            <h2
+               class="mb-5 text-3xl font-bold text-dark dark:text-white sm:text-[40px]/[48px]"
+               >
+               Make an order
+            </h2>
+            <p class="mb-5 text-base text-body-color dark:text-dark-6">
+              <span><b>Early Fire Detection System (EFDS): </b><br><br></span>
+
+              Keep your space safe with our AI-powered fire detection. Order now to protect what matters most.
+              
+            </p>
+
+            <p class="mb-5 text-base text-body-color dark:text-dark-6">
+              <span><b>Attendance Assistant:</b><br><br></span>
+
+              Simplify attendance tracking effortlessly. Get your hands on this efficient system to streamline your workforce management.
+              
+            </p>
+
+            <p class="mb-5 text-base text-body-color dark:text-dark-6">
+              <span><b>Plant Disease Detection:</b><br><br></span>
+
+              Help your plants stay healthy with our Plant Doctor! Order now and give your plants the care they deserve.              
+            </p>
+            <p class="mb-5 text-base text-body-color">
+              Just select the product you need. Our team is here to assist you every step of the way. Place your order today and experience the difference!
+            </p>
+
+            <a
+               href="{% url 'order' %}"
+               class="inline-flex fororderbutton items-center justify-center py-3  text-base font-medium text-center  text-white border border-[#0074d9] rounded-md px-7  hover:bg-opacity-90"
+               style="z-index: 99999 !important; position: absolute; background-color:#0074d9 ;"
+               
+               >
+               Order
+            </a>
+         </div>
+      </div>
+   </div>
+</div>
+</section> 
+
+  </main>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+{% block scripts %}
+  <script>
+      // translate
+//   id="uztranslate"
+// id="rutranslate"
+// id="entranslate"
+
+
+
+    //   Drawer Menu
+    const mobileMenuButton = document.getElementById("mobileMenuButton");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    mobileMenuButton.addEventListener("click", function () {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+
+    function closeDrawerIfHidden() {
+      if (mediaQuery.matches && !mobileMenu.classList.contains("hidden")) {
+        mobileMenu.classList.add("hidden");
+      }
+    }
+
+    mediaQuery.addEventListener("change", closeDrawerIfHidden);
+    window.addEventListener("resize", closeDrawerIfHidden);
+
+    mobileMenu.addEventListener("click", function () {
+      mobileMenu.classList.add("hidden");
+    });
+
+    //   Navbar Scroll view
+
+    let prevScrollPos = window.pageYOffset;
+    const navbar = document.getElementById("navbar");
+    // navbar.style.top = "-100px"
+    window.onscroll = function () {
+      const currentScrollPos = window.pageYOffset;
+
+      if (prevScrollPos > currentScrollPos) {
+        navbar.style.top = "0"; // Show navbar if scrolling up
+      } else {
+        navbar.style.top = "-100px"; // Hide navbar if scrolling down
+      }
+
+      prevScrollPos = currentScrollPos;
+    };
+
+
+  </script>
+{% endblock %}

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JRS</title>
+    
+
+    <!-- fontawsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+      <!-- google fonts Poppins -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    
+    
+    <!-- favicon -->
+    <link rel="shortcut icon"
+      href="https://firebasestorage.googleapis.com/v0/b/infinitumai.appspot.com/o/white_logo_transparent.ico?alt=media&token=f0a4ff7b-a6cc-4e87-b3a4-b366ea5352d2"
+      type="image/x-icon" />
+
+    <!-- tailwind css -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <!-- particle js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js" integrity="sha512-jq8sZI0I9Og0nnZ+CfJRnUzNSDKxr/5Bvha5bn7AHzTnRyxUfpUArMzfH++mwE/hb2efOo1gCAgI+1RMzf8F7g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+
+
+    <style>
+        /* Particle JS Codes */
+        /* ---- reset ---- */ 
+        body{ margin:0; font:normal 75% Arial, Helvetica, sans-serif; } 
+        canvas{ display: block; vertical-align: bottom; }
+         /* ---- particles.js container ---- */
+          #particles-js{ position:absolute; width: 100%; height: 100%; background-color: #1a193b; background-image: url(""); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; } /* ---- stats.js ---- */ .count-particles{ background: #000022; position: absolute; top: 48px; left: 0; width: 80px; color: #13E8E9; font-size: .8em; text-align: left; text-indent: 4px; line-height: 14px; padding-bottom: 2px; font-family: Helvetica, Arial, sans-serif; font-weight: bold; } .js-count-particles{ font-size: 1.1em; } #stats, .count-particles{ -webkit-user-select: none; margin-top: 5px; margin-left: 5px; } #stats{ border-radius: 3px 3px 0 0; overflow: hidden; } .count-particles{ border-radius: 0 0 3px 3px; }
+        /* Particle JS Codes */
+
+        /* custom scrollbar */
+        ::-webkit-scrollbar {
+      width: 12px;
+      /* Width of the scrollbar */
+      height: 2px;
+      /* Height of the scrollbar */
+      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+      /* Shadow for the scrollbar */
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      /* Track color */
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      /* Thumb color */
+      border-radius: 6px;
+      /* Roundness of the thumb */
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+      /* Thumb color on hover */
+    }
+
+    /* For Firefox */
+    /* You can modify these styles to suit your design */
+    /* Firefox uses a different approach to style scrollbars */
+    /* You can adjust colors, widths, etc. as desired */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #0074d9;
+    }
+
+    *::-webkit-scrollbar {
+      width: 4px;
+      /* Width of the scrollbar */
+      height: 2px;
+      /* Height of the scrollbar */
+      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+      /* Shadow for the scrollbar */
+    }
+
+    *::-webkit-scrollbar-track {
+      background: transparent;
+      /* Track color */
+    }
+
+    *::-webkit-scrollbar-thumb {
+      background: #fff;
+      /* Thumb color */
+      border-radius: 6px;
+      /* Roundness of the thumb */
+    }
+
+    *::-webkit-scrollbar-thumb:hover {
+      background: #555;
+      /* Thumb color on hover */
+    }
+        /* custom scrollbar */
+    .getstartedButton:hover{
+        box-shadow: 0px 0px 30px #0074d9;
+    }
+
+    /* arrow animation */
+    .rightArrowAnimation{
+        animation: moveright 1s ease-in-out infinite  alternate;
+       
+    }
+
+    @keyframes moveright {
+      0% {
+        transform: translateX(0);
+        /* Initial position */
+      }
+
+      100% {
+        transform: translateX(50px);
+        filter: drop-shadow(0px 0px 5px #ffffff);
+         display: none;
+        /* Final position */
+      }
+    }
+
+    </style>
+</head>
+<body class="bg-[#1a193b]">
+    
+    <!-- navbar -->
+
+
+
+
+
+<main>
+
+        <!-- particles.js container --> 
+        <div id="particles-js" class="h-screen">
+            
+           
+           
+            <div class="absolute min-h-full w-full text-white flex-col mt-56 justify-center px-6 py-12 lg:px-8">
+                <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+                  <img class="mx-auto h-16 w-auto" src="https://firebasestorage.googleapis.com/v0/b/infinitumai.appspot.com/o/logo_4.png?alt=media&token=cb3637d8-1847-42ac-a7d4-229a6d80e8c1" alt="Your Company">
+                  <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight  text-white">Job Recommendation System</h2>
+                </div>
+              
+                <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+                  <form class="space-y-6"  method="post" enctype="multipart/form-data">
+                      {% csrf_token %}
+                    <div>
+                      <label for="cv" class="block text-sm font-medium leading-6  text-white">Please Upload Your CV</label>
+                      <div class="mt-2">
+                        <input type="file" id="pdf_file" name="pdf_file" accept = "application/pdf" autocomplete="cv" required class="block w-full rounded-md border-0 py-1.5  text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                      </div>
+                    </div>
+              
+                    
+              
+                    <div>
+                      <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Find</button>
+                    </div>
+                  </form>
+              
+                  
+                </div>
+              </div>
+            
+        
+        </div>
+        <!-- stats - count particles -->
+        
+    </main>
+    
+
+    
+
+
+
+
+
+
+
+  <!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib --> <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+   <!-- Particle JS Codes -->
+   <script>
+        particlesJS("particles-js", {"particles":{"number":{"value":80,"density":{"enable":true,"value_area":800}},"color":{"value":"#ffffff"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.5,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});var count_particles, stats, update; stats = new Stats; stats.setMode(0); stats.domElement.style.position = 'absolute'; stats.domElement.style.left = '0px'; stats.domElement.style.top = '0px'; document.body.appendChild(stats.domElement); count_particles = document.querySelector('.js-count-particles'); update = function() { stats.begin(); stats.end(); if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) { count_particles.innerText = window.pJSDom[0].pJS.particles.array.length; } requestAnimationFrame(update); }; requestAnimationFrame(update);;
+    </script>
+    <!-- Particle Js codes -->
+
+</body>
+</html>

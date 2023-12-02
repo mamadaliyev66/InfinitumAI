@@ -1,0 +1,1573 @@
+
+{% extends 'base.html' %}
+  {% block title %}Home{% endblock %}
+{% block head %}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet" />
+  <link rel="shortcut icon"
+    href="https://firebasestorage.googleapis.com/v0/b/infinitumai.appspot.com/o/white_logo_transparent.ico?alt=media&token=f0a4ff7b-a6cc-4e87-b3a4-b366ea5352d2"
+    type="image/x-icon" />
+  <link href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.css" rel="stylesheet" />
+
+  <script type="module">
+    import KeenSlider from 'https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm'
+
+    const keenSlider = new KeenSlider(
+      '#keen-slider',
+      {
+        loop: true,
+        slides: {
+          origin: 'center',
+          perView: 1.25,
+          spacing: 16,
+        },
+
+        breakpoints: {
+          '(min-width: 1024px)': {
+            slides: {
+              origin: 'auto',
+              perView: 1.5,
+              spacing: 32,
+            },
+          },
+        },
+      },
+      []
+    )
+
+    const keenSliderPrevious = document.getElementById('keen-slider-previous')
+    const keenSliderNext = document.getElementById('keen-slider-next')
+
+    const keenSliderPreviousDesktop = document.getElementById(
+      'keen-slider-previous-desktop'
+    )
+    const keenSliderNextDesktop = document.getElementById(
+      'keen-slider-next-desktop'
+    )
+
+    keenSliderPrevious.addEventListener('click', () => keenSlider.prev())
+    keenSliderNext.addEventListener('click', () => keenSlider.next())
+
+    keenSliderPreviousDesktop.addEventListener('click', () => keenSlider.prev())
+    keenSliderNextDesktop.addEventListener('click', () => keenSlider.next())
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    #scrollButton {
+      border: 1px solid white;
+      height: 80px;
+      width: 40px;
+      border-radius: 40px;
+      cursor: pointer;
+      /* Set cursor to pointer on hover */
+      transition: all 0.3s ease;
+      /* Smooth transition for all properties */
+      position: relative;
+      /* Ensure button remains clickable */
+      z-index: 999;
+      /* Ensure the button is above other elements */
+    }
+
+    #scrollButton:hover {
+      color: #fff;
+      /* White text color on hover */
+      box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+      /* Enhanced box shadow on hover */
+      transform: scale(1.05);
+      /* Scale up the button on hover */
+      box-shadow: 0px 0px 30px white;
+    }
+
+    /* Responsive design */
+    /* Adjust button size for smaller devices */
+    @media only screen and (max-width: 600px) {
+      #scrollButton {
+        padding: 10px 20px;
+        /* Adjusted padding for smaller devices */
+        font-size: 14px;
+        /* Adjusted font size for smaller devices */
+
+
+
+      }
+
+      .fororderbutton{
+        bottom:10;
+      }
+    }
+
+    #scrollButton i {
+      font-size: 24px;
+      /* Adjust icon size */
+      padding-top: 40px;
+      animation: moveUpDown 3s ease-in-out infinite alternate;
+      /* Animation */
+    }
+
+    #scrollButton{
+      animation: shadowAnimation 3s ease-in-out infinite alternate;
+    }
+    /* Keyframe animation */
+    @keyframes moveUpDown {
+      0% {
+        transform: translateY(0);
+        /* Initial position */
+      }
+
+      100% {
+        transform: translateY(-30px);
+        filter: drop-shadow(0px 0px 5px #ffffff);
+        /* Final position */
+      }
+    }
+
+
+    @keyframes shadowAnimation {
+      0% {
+        filter: drop-shadow(0px 0px 0px #ffffff);
+
+      }
+
+      100% {
+        filter: drop-shadow(0px 0px 5px #ffffff);
+        /* Final position */
+      }
+    }
+    body,
+    html {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      min-width: 100%;
+      min-height: 100%;
+    }
+
+    main {
+      z-index: 1;
+    }
+
+    body {
+      position: relative;
+      background: #000;
+    }
+
+    #canvas {
+      display: block;
+      position: absolute;
+      z-index: -1;
+    }
+
+    body::after {
+      z-index: 10;
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      content: "";
+    }
+
+    /* Add your navbar styles here */
+    .nav-bar {
+      position: fixed;
+      z-index: 99999;
+      /* Ensure the button is above other elements */
+
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #111827;
+      transition: top 0.3s;
+      /* Smooth transition for the navbar */
+    }
+
+    .hidden {
+      top: -100px;
+      /* Hides the navbar above the viewport */
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 12px;
+      /* Width of the scrollbar */
+      height: 2px;
+      /* Height of the scrollbar */
+      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+      /* Shadow for the scrollbar */
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      /* Track color */
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      /* Thumb color */
+      border-radius: 6px;
+      /* Roundness of the thumb */
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+      /* Thumb color on hover */
+    }
+
+    /* For Firefox */
+    /* You can modify these styles to suit your design */
+    /* Firefox uses a different approach to style scrollbars */
+    /* You can adjust colors, widths, etc. as desired */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #0074d9;
+    }
+
+    *::-webkit-scrollbar {
+      width: 4px;
+      /* Width of the scrollbar */
+      height: 2px;
+      /* Height of the scrollbar */
+      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+      /* Shadow for the scrollbar */
+    }
+
+    *::-webkit-scrollbar-track {
+      background: transparent;
+      /* Track color */
+    }
+
+    *::-webkit-scrollbar-thumb {
+      background: #fff;
+      /* Thumb color */
+      border-radius: 6px;
+      /* Roundness of the thumb */
+    }
+
+    *::-webkit-scrollbar-thumb:hover {
+      background: #555;
+      /* Thumb color on hover */
+    }
+
+    /* End */
+  </style>
+{% endblock %}
+
+{% block content %}
+  <canvas id="canvas" class="bg-black"></canvas>
+
+  <main class="text-white">
+    <!-- section 1  Start-->
+    <section class=" h-screen align-middle relative" id="section1">
+      <div class="text-center space-y-6 md:pt-72 pt-36">
+        <h1 class="text-6xl" style="text-shadow: 10px 0px 20px #f3f4f5">
+          Believers Of Technology
+        </h1>
+        <h1 class="text-6xl" style="text-shadow: 10px 0px 20px #f3f4f5">
+          Lovers Of
+          <span class="text-[#0074d9]" style="text-shadow: 10px 0px 30px #0074d9">Creativity</span>
+        </h1>
+        <h2 class="text-2xl">Your Concept, Our Development</h2>
+      </div>
+
+      <div class="justify-center absolute bottom-10 flex w-full mt-20">
+        <button id="scrollButton" class="justify-center flex" onclick="scrollToSection()">
+          <i class="fas fa-chevron-down"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- section 1 End-->
+
+    <!-- section 2 Start --><!--Our products -->
+     <section id="section2" class="  bg-cover bg-center overflow-hidden md:h-screen h-[1040px]"  style="
+     
+     background-attachment: fixed;
+     background-image: url('https://itbrief.com.au/uploads/story/2023/07/04/GettyImages-1468068287.webp');">
+      <div class="z-30 relative items-center justify-center w-full h-full overflow-auto" style="overflow-y: hidden; /* Hide vertical scrollbar */
+      overflow-x: hidden;">
+        <div class="inset-0 h-screen " >
+        
+        <div class=" inset-0 z-20  flex items-center justify-center  w-full bg-gray-900 bg-opacity-75 ">
+
+          <div class="mx-auto  h-screen md:mt-20  mt-9">
+            <div class="grid grid-cols-1  gap-8 lg:grid-cols-3 lg:items-center lg:gap-16">
+              <div class="max-w-xl  text-center ltr:sm:text-left rtl:sm:text-right">
+                <h2 class="text-3xl font-bold tracking-tight  sm:text-4xl">
+                  Our Products
+                </h2>
+
+                <p class="mt-4 ">
+                  Ready to discover more? Dive deeper into our extensive collection of innovative products. Each item in
+                  our lineup is crafted with precision and designed to exceed your expectations.
+                </p>
+
+                <div class="hidden lg:mt-8 lg:flex lg:gap-4">
+                  <button aria-label="Previous slide" id="keen-slider-previous-desktop"
+                    class="rounded-full border ml-72 border-[#0074d9]  p-3 text-[#text-[#0074d9] transition hover:bg-[#0074d9] hover:text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                      stroke="currentColor" class="h-5 w-5 rtl:rotate-180 ">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                    </svg>
+                  </button>
+
+                  <button aria-label="Next slide" id="keen-slider-next-desktop"
+                    class="rounded-full border border-[#0074d9]  p-3 text-[#text-[#0074d9] transition hover:bg-[#0074d9] hover:text-white">
+                    <svg class="h-5 w-5 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="-mx-6 lg:col-span-2 lg:mx-0">
+                <div id="keen-slider" class="keen-slider">
+                  <div class="keen-slider__slide">
+                    <blockquote class="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
+
+                      <a href="{% url 'efds' %}">
+                      <div>
+                        <div class="flex gap-0.5 text-green-500">
+                          <img
+                            src="https://static.vecteezy.com/system/resources/previews/011/426/954/original/flame-in-house-remote-notification-smart-home-high-tech-fire-alarm-system-fire-prevention-methods-smoke-and-fire-alarm-concept-flat-modern-illustration-vector.jpg"
+                            alt="">
+                        </div>
+
+                        <div class="mt-4">
+                          <p class="text-2xl font-bold text-rose-600 sm:text-3xl">
+                            Early Fire Detection
+                          </p>
+
+                          <p class="mt-4 leading-relaxed text-gray-700">
+                            Our cutting-edge technology ensures that fires are swiftly and automatically detected,
+                            allowing for immediate action to mitigate risks. With our EFDS, you can trust in its
+                            advanced algorithms and sensor integration to proactively identify fire hazards before they
+                            escalate. Stay ahead of potential disasters and safeguard your environment with our
+                            unparalleled fire detection solution.
+                          </p>
+                        </div>
+                      </div>
+                    </a>
+
+                  </div>
+
+                  <div class="keen-slider__slide">
+                    <blockquote class="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
+                      <a href="{% url 'atendance' %}">
+                      <div>
+                        <div class="flex gap-0.5 text-green-500">
+                          <img
+                            src="https://firebasestorage.googleapis.com/v0/b/infinitumai.appspot.com/o/student-management.png?alt=media&token=07096d82-172f-48f0-8f50-52f6091f7aa8"
+                            alt="">
+                        </div>
+
+                        <div class="mt-4">
+                          <p class="text-2xl font-bold text-rose-600 sm:text-3xl">
+                            Attendance Assisant
+                          </p>
+
+                          <p class="mt-4 leading-relaxed text-gray-700">
+                            Meet our Attendance Assistant: a smart way to keep track of who's here and who's not. It
+                            uses fancy face recognition to quickly mark who's present, making sure everyone's accounted
+                            for without any fuss. It also sends alerts if someone's late or misses out, helping everyone
+                            stay on track. Plus, it gives easy-to-read reports so bosses can plan better. Simple, easy,
+                            and a real time-saver for everyone involved
+                          </p>
+                        </div>
+                      </div>
+
+                    </a>
+                  </div>
+
+                  <div class="keen-slider__slide">
+                    <blockquote class="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
+                      <a href="{% url 'plant_disease' %}">
+                      <div>
+                        <div class="flex gap-0.5 text-green-500">
+                          <img
+                            src="https://www.rp.edu.sg/images/default-source/industry-library/otd/projects/computer-vision-and-video-analytics-for-plant-growth-and-plant-disease.jpg"
+                            alt="">
+                        </div>
+
+                        <div class="mt-4">
+                          <p class="text-2xl font-bold text-rose-600 sm:text-3xl">
+                            Plant Disease Detection
+                          </p>
+
+                          <p class="mt-4 leading-relaxed text-gray-700">
+                            Meet our Plant Doctor! It's like magic glasses for plants. It takes pictures and spots if
+                            any plant is feeling sick. Then it tells the farmers so they can help the plants feel
+                            better. It's a super helper that keeps plants strong and happy!
+                          </p>
+                        </div>
+                      </div>
+                    </a>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 flex justify-center gap-4 lg:hidden">
+              <button aria-label="Previous slide" id="keen-slider-previous"
+                class="rounded-full border border-[#0074d9] p-4 text-[#0074d9] transition hover:bg-[#0074d9] hover:text-white">
+                <svg class="h-5 w-5 -rotate-180 transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                </svg>
+              </button>
+
+              <button aria-label="Next slide" id="keen-slider-next"
+                class="rounded-full border border-[#0074d9] p-4 text-[#0074d9] transition hover:bg-[#0074d9] hover:text-white">
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+
+
+
+
+
+        </div>
+      </div>
+    </section> 
+
+    <!-- section 2 End-->
+
+    <!-- Section 3  Start--><!--Our blog -->
+    <section class="flex items-center justify-center bg-gray-100 dark:bg-gray-800 lg:h-screen">
+      <div class="px-4 py-20 mx-auto max-w-7xl">
+          <div class="flex flex-wrap">
+              <div class="relative w-full mb-10 lg:mb-0 lg:mr-20 lg:w-2/5">
+                  <div class="absolute z-10 hidden w-full h-full bg-blue-400 rounded -top-6 left-6 lg:block">
+                  </div>
+                  <img class="relative z-20 object-cover w-full h-full rounded"
+                      src="https://dig.watch/wp-content/uploads/2022/05/AdobeStock_235097303.jpeg" alt="">
+              </div>
+              <div class="flex-1 pl-0 lg:pl-4">
+                  <div class="mb-12">
+                      <div class="relative">
+                          <h1 class="absolute -top-14 -left-44 text-[120px] font-bold opacity-5">Infinitum
+                          </h1>
+                          <h1 class="text-5xl font-bold dark:text-white"> Infinitum <span class="text-blue-500">
+                                  AI
+                              </span> </h1>
+                          <div class="flex w-24 mt-1 mb-10 overflow-hidden rounded">
+                              <div class="flex-1 h-2 bg-blue-200">
+                              </div>
+                              <div class="flex-1 h-2 bg-blue-400">
+                              </div>
+                              <div class="flex-1 h-2 bg-blue-600">
+                              </div>
+                          </div>
+                      </div>
+                      
+                  </div>
+                  <div class="grid flex-1 grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
+                      <div
+                          class="w-full p-8 text-center transition-all bg-white rounded shadow  dark:bg-gray-700 hover:shadow-lg">
+                          <div class="inline-block p-4 mb-4 bg-blue-400 rounded-full">
+                              <i class="fa-solid fa-money-bill-transfer"></i>
+                          </div>
+                          <h3 class="text-lg font-semibold text-black dark:text-white"> Affordable Prices </h3>
+                      </div>
+                      <div
+                          class="w-full p-8 text-center transition-all bg-white rounded shadow dark:bg-gray-700 hover:shadow-lg">
+                          <div class="inline-block p-4 mb-4 bg-blue-400 rounded-full">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                  class="text-white" viewBox="0 0 16 16">
+                                  <path
+                                      d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z">
+                                  </path>
+                                  <path
+                                      d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z">
+                                  </path>
+                              </svg>
+                          </div>
+                          <h3 class="text-lg font-semibold text-black dark:text-white"> Quality Service </h3>
+                      </div>
+                      <div
+                          class="w-full p-8 text-center transition-all bg-white rounded shadow dark:bg-gray-700 hover:shadow-lg">
+                          <div class="inline-block p-4 mb-4 bg-blue-400 rounded-full">
+                              <i class="fa-solid fa-thumbs-up"></i>                            </div>
+                          <h3 class="text-lg font-semibold text-black dark:text-white"> High Precision </h3>
+                      </div>
+                      <div
+                          class="w-full p-8 text-center transition-all bg-white rounded shadow dark:bg-gray-700 hover:shadow-lg">
+                          <div class="inline-block p-4 mb-4 bg-blue-400 rounded-full">
+                              <i class="fa-solid fa-user-shield"></i>
+                          </div>
+                          <h3 class="text-lg font-semibold text-black dark:text-white"> Data Protection </h3>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section> 
+    <!-- Section 3  End-->
+
+    <!-- Section 4 Start --><!-- Order -->
+
+<section
+class="overflow-hidden pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] bg-gray-800"
+>
+<div class="container mx-auto">
+   <div class="flex flex-wrap items-center justify-between -mx-4">
+      <div class="w-full px-4 lg:w-6/12">
+         <div class="flex items-center -mx-3 sm:-mx-4">
+            <div class="w-full px-3 sm:px-4 xl:w-1/2">
+               <div class="py-3 sm:py-4">
+                  <img
+                            src="https://static.vecteezy.com/system/resources/previews/011/426/954/original/flame-in-house-remote-notification-smart-home-high-tech-fire-alarm-system-fire-prevention-methods-smoke-and-fire-alarm-concept-flat-modern-illustration-vector.jpg"
+                     alt=""
+                     class="w-full rounded-2xl"
+                     />
+               </div>
+               <div class="py-3 sm:py-4">
+                  <img
+                            src="https://firebasestorage.googleapis.com/v0/b/infinitumai.appspot.com/o/student-management.png?alt=media&token=07096d82-172f-48f0-8f50-52f6091f7aa8"
+                     alt=""
+                     class="w-full rounded-2xl"
+                     />
+               </div>
+            </div>
+            <div class="w-full px-3 sm:px-4 xl:w-1/2">
+               <div class="relative z-10 my-4">
+                  <img
+                            src="https://www.rp.edu.sg/images/default-source/industry-library/otd/projects/computer-vision-and-video-analytics-for-plant-growth-and-plant-disease.jpg"
+                     alt=""
+                     class="w-full rounded-2xl"
+                     />
+                  <span class="absolute -right-7 -bottom-7 z-[-1]">
+                     <svg
+                        width="134"
+                        height="106"
+                        viewBox="0 0 134 106"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        >
+                        <circle
+                           cx="1.66667"
+                           cy="104"
+                           r="1.66667"
+                           transform="rotate(-90 1.66667 104)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="16.3333"
+                           cy="104"
+                           r="1.66667"
+                           transform="rotate(-90 16.3333 104)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="31"
+                           cy="104"
+                           r="1.66667"
+                           transform="rotate(-90 31 104)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="45.6667"
+                           cy="104"
+                           r="1.66667"
+                           transform="rotate(-90 45.6667 104)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="60.3334"
+                           cy="104"
+                           r="1.66667"
+                           transform="rotate(-90 60.3334 104)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="88.6667"
+                           cy="104"
+                           r="1.66667"
+                           transform="rotate(-90 88.6667 104)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="117.667"
+                           cy="104"
+                           r="1.66667"
+                           transform="rotate(-90 117.667 104)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="74.6667"
+                           cy="104"
+                           r="1.66667"
+                           transform="rotate(-90 74.6667 104)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="103"
+                           cy="104"
+                           r="1.66667"
+                           transform="rotate(-90 103 104)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="132"
+                           cy="104"
+                           r="1.66667"
+                           transform="rotate(-90 132 104)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="1.66667"
+                           cy="89.3333"
+                           r="1.66667"
+                           transform="rotate(-90 1.66667 89.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="16.3333"
+                           cy="89.3333"
+                           r="1.66667"
+                           transform="rotate(-90 16.3333 89.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="31"
+                           cy="89.3333"
+                           r="1.66667"
+                           transform="rotate(-90 31 89.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="45.6667"
+                           cy="89.3333"
+                           r="1.66667"
+                           transform="rotate(-90 45.6667 89.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="60.3333"
+                           cy="89.3338"
+                           r="1.66667"
+                           transform="rotate(-90 60.3333 89.3338)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="88.6667"
+                           cy="89.3338"
+                           r="1.66667"
+                           transform="rotate(-90 88.6667 89.3338)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="117.667"
+                           cy="89.3338"
+                           r="1.66667"
+                           transform="rotate(-90 117.667 89.3338)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="74.6667"
+                           cy="89.3338"
+                           r="1.66667"
+                           transform="rotate(-90 74.6667 89.3338)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="103"
+                           cy="89.3338"
+                           r="1.66667"
+                           transform="rotate(-90 103 89.3338)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="132"
+                           cy="89.3338"
+                           r="1.66667"
+                           transform="rotate(-90 132 89.3338)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="1.66667"
+                           cy="74.6673"
+                           r="1.66667"
+                           transform="rotate(-90 1.66667 74.6673)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="1.66667"
+                           cy="31.0003"
+                           r="1.66667"
+                           transform="rotate(-90 1.66667 31.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="16.3333"
+                           cy="74.6668"
+                           r="1.66667"
+                           transform="rotate(-90 16.3333 74.6668)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="16.3333"
+                           cy="31.0003"
+                           r="1.66667"
+                           transform="rotate(-90 16.3333 31.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="31"
+                           cy="74.6668"
+                           r="1.66667"
+                           transform="rotate(-90 31 74.6668)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="31"
+                           cy="31.0003"
+                           r="1.66667"
+                           transform="rotate(-90 31 31.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="45.6667"
+                           cy="74.6668"
+                           r="1.66667"
+                           transform="rotate(-90 45.6667 74.6668)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="45.6667"
+                           cy="31.0003"
+                           r="1.66667"
+                           transform="rotate(-90 45.6667 31.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="60.3333"
+                           cy="74.6668"
+                           r="1.66667"
+                           transform="rotate(-90 60.3333 74.6668)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="60.3333"
+                           cy="30.9998"
+                           r="1.66667"
+                           transform="rotate(-90 60.3333 30.9998)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="88.6667"
+                           cy="74.6668"
+                           r="1.66667"
+                           transform="rotate(-90 88.6667 74.6668)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="88.6667"
+                           cy="30.9998"
+                           r="1.66667"
+                           transform="rotate(-90 88.6667 30.9998)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="117.667"
+                           cy="74.6668"
+                           r="1.66667"
+                           transform="rotate(-90 117.667 74.6668)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="117.667"
+                           cy="30.9998"
+                           r="1.66667"
+                           transform="rotate(-90 117.667 30.9998)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="74.6667"
+                           cy="74.6668"
+                           r="1.66667"
+                           transform="rotate(-90 74.6667 74.6668)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="74.6667"
+                           cy="30.9998"
+                           r="1.66667"
+                           transform="rotate(-90 74.6667 30.9998)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="103"
+                           cy="74.6668"
+                           r="1.66667"
+                           transform="rotate(-90 103 74.6668)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="103"
+                           cy="30.9998"
+                           r="1.66667"
+                           transform="rotate(-90 103 30.9998)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="132"
+                           cy="74.6668"
+                           r="1.66667"
+                           transform="rotate(-90 132 74.6668)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="132"
+                           cy="30.9998"
+                           r="1.66667"
+                           transform="rotate(-90 132 30.9998)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="1.66667"
+                           cy="60.0003"
+                           r="1.66667"
+                           transform="rotate(-90 1.66667 60.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="1.66667"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 1.66667 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="16.3333"
+                           cy="60.0003"
+                           r="1.66667"
+                           transform="rotate(-90 16.3333 60.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="16.3333"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 16.3333 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="31"
+                           cy="60.0003"
+                           r="1.66667"
+                           transform="rotate(-90 31 60.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="31"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 31 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="45.6667"
+                           cy="60.0003"
+                           r="1.66667"
+                           transform="rotate(-90 45.6667 60.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="45.6667"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 45.6667 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="60.3333"
+                           cy="60.0003"
+                           r="1.66667"
+                           transform="rotate(-90 60.3333 60.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="60.3333"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 60.3333 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="88.6667"
+                           cy="60.0003"
+                           r="1.66667"
+                           transform="rotate(-90 88.6667 60.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="88.6667"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 88.6667 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="117.667"
+                           cy="60.0003"
+                           r="1.66667"
+                           transform="rotate(-90 117.667 60.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="117.667"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 117.667 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="74.6667"
+                           cy="60.0003"
+                           r="1.66667"
+                           transform="rotate(-90 74.6667 60.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="74.6667"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 74.6667 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="103"
+                           cy="60.0003"
+                           r="1.66667"
+                           transform="rotate(-90 103 60.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="103"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 103 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="132"
+                           cy="60.0003"
+                           r="1.66667"
+                           transform="rotate(-90 132 60.0003)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="132"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 132 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="1.66667"
+                           cy="45.3333"
+                           r="1.66667"
+                           transform="rotate(-90 1.66667 45.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="1.66667"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 1.66667 1.66683)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="16.3333"
+                           cy="45.3333"
+                           r="1.66667"
+                           transform="rotate(-90 16.3333 45.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="16.3333"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 16.3333 1.66683)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="31"
+                           cy="45.3333"
+                           r="1.66667"
+                           transform="rotate(-90 31 45.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="31"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 31 1.66683)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="45.6667"
+                           cy="45.3333"
+                           r="1.66667"
+                           transform="rotate(-90 45.6667 45.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="45.6667"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 45.6667 1.66683)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="60.3333"
+                           cy="45.3338"
+                           r="1.66667"
+                           transform="rotate(-90 60.3333 45.3338)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="60.3333"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 60.3333 1.66683)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="88.6667"
+                           cy="45.3338"
+                           r="1.66667"
+                           transform="rotate(-90 88.6667 45.3338)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="88.6667"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 88.6667 1.66683)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="117.667"
+                           cy="45.3338"
+                           r="1.66667"
+                           transform="rotate(-90 117.667 45.3338)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="117.667"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 117.667 1.66683)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="74.6667"
+                           cy="45.3338"
+                           r="1.66667"
+                           transform="rotate(-90 74.6667 45.3338)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="74.6667"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 74.6667 1.66683)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="103"
+                           cy="45.3338"
+                           r="1.66667"
+                           transform="rotate(-90 103 45.3338)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="103"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 103 1.66683)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="132"
+                           cy="45.3338"
+                           r="1.66667"
+                           transform="rotate(-90 132 45.3338)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="132"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 132 1.66683)"
+                           fill="#3056D3"
+                           />
+                     </svg>
+                  </span>
+               </div>
+            </div>
+         </div>
+      </div>
+               
+               <div class="w-full px-4 lg:w-1/2 xl:w-5/12">
+         <div class="mt-10 lg:mt-0">
+            
+            <h2
+               class="mb-5 text-3xl font-bold text-dark dark:text-white sm:text-[40px]/[48px]"
+               >
+               Make an order
+            </h2>
+            <p class="mb-5 text-base text-body-color dark:text-dark-6">
+              <span><b>Early Fire Detection System (EFDS): </b><br><br></span>
+
+              Keep your space safe with our AI-powered fire detection. Order now to protect what matters most.
+              
+            </p>
+
+            <p class="mb-5 text-base text-body-color dark:text-dark-6">
+              <span><b>Attendance Assistant:</b><br><br></span>
+
+              Simplify attendance tracking effortlessly. Get your hands on this efficient system to streamline your workforce management.
+              
+            </p>
+
+            <p class="mb-5 text-base text-body-color dark:text-dark-6">
+              <span><b>Plant Disease Detection:</b><br><br></span>
+
+              Help your plants stay healthy with our Plant Doctor! Order now and give your plants the care they deserve.              
+            </p>
+            <p class="mb-5 text-base text-body-color">
+              Just select the product you need. Our team is here to assist you every step of the way. Place your order today and experience the difference!
+            </p>
+
+            <a
+               href="{% url 'order' %}"
+               class="inline-flex fororderbutton items-center justify-center py-3  text-base font-medium text-center  text-white border border-[#0074d9] rounded-md px-7  hover:bg-opacity-90"
+               style="z-index: 99999 !important; position: absolute; background-color:#0074d9 ;"
+               
+               >
+               Order
+            </a>
+         </div>
+      </div>
+   </div>
+</div>
+</section>
+
+    <!-- Section 4 End -->
+
+
+  </main>
+
+
+
+
+{% endblock %}
+
+
+
+
+
+{% block scripts %}
+ <script>
+
+  // translate
+//   id="uztranslate"
+// id="rutranslate"
+// id="entranslate"
+
+
+
+// scroll button
+
+    document.getElementById("scrollButton").addEventListener("click", () => {
+      document
+        .getElementById("section2")
+        .scrollIntoView({ behavior: "smooth" });
+    });
+
+    //   Drawer Menu
+    const mobileMenuButton = document.getElementById("mobileMenuButton");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    mobileMenuButton.addEventListener("click", function () {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+
+    function closeDrawerIfHidden() {
+      if (mediaQuery.matches && !mobileMenu.classList.contains("hidden")) {
+        mobileMenu.classList.add("hidden");
+      }
+    }
+
+    mediaQuery.addEventListener("change", closeDrawerIfHidden);
+    window.addEventListener("resize", closeDrawerIfHidden);
+
+    mobileMenu.addEventListener("click", function () {
+      mobileMenu.classList.add("hidden");
+    });
+
+    //   Navbar Scroll view
+
+    let prevScrollPos = window.pageYOffset;
+    const navbar = document.getElementById("navbar");
+    navbar.style.top = "-100px"
+    window.onscroll = function () {
+      const currentScrollPos = window.pageYOffset;
+
+      if (prevScrollPos > currentScrollPos) {
+        navbar.style.top = "0"; // Show navbar if scrolling up
+      } else {
+        navbar.style.top = "-100px"; // Hide navbar if scrolling down
+      }
+
+      prevScrollPos = currentScrollPos;
+    };
+
+    // main body animation
+
+    window.onload = function () {
+      // Adjustable variables
+      var settings = {
+        pointDensity: 8,
+        connections: 2,
+        sizeVariation: 0.3,
+        velocity: 0.00003,
+        maxMovement: 50,
+        attractionRange: 400,
+        attractionFactor: 0.06,
+        imagePath:
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iMjBweCIgaGVpZ2h0PSIxOHB4IiB2aWV3Qm94PSIwIDAgMjAgMTgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+ICAgICAgICA8dGl0bGU+R3JvdXA8L3RpdGxlPiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4gICAgPGRlZnM+PC9kZWZzPiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4gICAgICAgIDxnIGlkPSJHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAuMDAwMDAwLCA5LjAwMDAwMCkgcm90YXRlKC0zMzAuMDAwMDAwKSB0cmFuc2xhdGUoLTEwLjAwMDAwMCwgLTkuMDAwMDAwKSB0cmFuc2xhdGUoMC4wMDAwMDAsIC0xLjAwMDAwMCkiPiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQb2x5Z29uIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjEwIC00LjA2MDI0NDJlLTE0IDE4LjY2MDI1NCA1IDE4LjY2MDI1NCAxNSAxMCAyMCAxLjMzOTc0NTk2IDE1IDEuMzM5NzQ1OTYgNSI+PC9wb2x5Z29uPiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQb2x5Z29uIiBmaWxsPSIjRjBGMEYwIiBwb2ludHM9IjEwIDEuNjI0MDk3NjhlLTE0IDE4LjY2MDI1NCA1IDE4LjY2MDI1NCAxNSAxMCAyMCAxLjMzOTc0NTk2IDE1IDkuOTk5OTk5NzYgMTAiPjwvcG9seWdvbj4gICAgICAgICAgICA8cG9seWdvbiBpZD0iUG9seWdvbiIgZmlsbD0iI0U3RTdFNyIgcG9pbnRzPSIxOC42NjAyNTQgMTUgMTAgMjAgMS4zMzk3NDU5NiAxNSA5Ljk5OTk5OTc2IDEwIj48L3BvbHlnb24+ICAgICAgICA8L2c+ICAgIDwvZz48L3N2Zz4=",
+        imgWidth: 20,
+        imgHeight: 18,
+        lineColor: "rgba(255,255,255,0.4)",
+        particleDensity: 0.2,
+        particleChance: 0.2,
+        particleVelocity: 70,
+        particleColor: "rgba(255,255,255,0.8)",
+        particleLength: 10,
+        flashRadius: 20,
+        flashOpacity: 0.6,
+        flashDecay: 0.2,
+      };
+
+      var start = null,
+        delta = 0,
+        lasttimestamp = null;
+
+      var points = [],
+        particles = [];
+
+      var mousePoint = { x: 0, y: 0 };
+
+      var img = new Image();
+      img.src = settings.imagePath;
+
+      var canvas = document.getElementById("canvas"),
+        ctx = canvas.getContext("2d");
+
+      // resize the canvas to fill browser window dynamically
+      var resizeTimer;
+      window.addEventListener("resize", resizeCanvas, false);
+      function resizeCanvas() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+          createPoints();
+          drawFrame();
+        }, 250);
+      }
+      resizeCanvas();
+
+      createPoints();
+
+      document.onmousemove = handleMouseMove;
+
+      window.requestAnimationFrame(animate);
+
+      function createPoints() {
+        points = [];
+        particles = [];
+        for (
+          var x = 0 - 100;
+          x < canvas.width + 100;
+          x = x + 1000 / settings.pointDensity
+        ) {
+          for (
+            var y = 0 - 100;
+            y < canvas.height + 100;
+            y = y + 1000 / settings.pointDensity
+          ) {
+            var px = Math.floor(
+              x + (Math.random() * 1000) / settings.pointDensity
+            );
+            var py = Math.floor(
+              y + (Math.random() * 1000) / settings.pointDensity
+            );
+            var pSizeMod = Math.random() * settings.sizeVariation + 1;
+            var pw = settings.imgWidth * pSizeMod;
+            var ph = settings.imgHeight * pSizeMod;
+            var pAnimOffset = Math.random() * 2 * Math.PI;
+            var p = {
+              x: px,
+              originX: px,
+              y: py,
+              originY: py,
+              w: pw,
+              h: ph,
+              sizeMod: pSizeMod,
+              animOffset: pAnimOffset,
+              attraction: 0,
+              flashOpacity: 0,
+            };
+            points.push(p);
+          }
+        }
+
+        // for each point find the closest points. From https://tympanus.net/codrops/2014/09/23/animated-background-headers/
+        for (var i = 0; i < points.length; i++) {
+          var closest = [];
+          var p1 = points[i];
+          for (var j = 0; j < points.length; j++) {
+            var p2 = points[j];
+            if (!contains(p2.closest, p1) && p1 != p2) {
+              var placed = false;
+              for (var k = 0; k < settings.connections; k++) {
+                if (!placed && closest[k] == undefined) {
+                  closest[k] = p2;
+                  placed = true;
+                }
+              }
+
+              for (var k = 0; k < settings.connections; k++) {
+                if (
+                  !placed &&
+                  getDistance(p1, p2) < getDistance(p1, closest[k])
+                ) {
+                  closest[k] = p2;
+                  placed = true;
+                }
+              }
+            }
+          }
+          p1.closest = closest;
+        }
+      }
+
+      function animate(timestamp) {
+        // Calculate frametime
+        if (!start) {
+          start = timestamp;
+          lasttimestamp = timestamp;
+        }
+        var elapsed = timestamp - start,
+          delta = (timestamp - lasttimestamp) / 100;
+        lasttimestamp = timestamp;
+
+        // Move points around
+        for (var i = 0; i < points.length; i++) {
+          var point = points[i];
+
+          var attractionOffset = { x: 0, y: 0 };
+          var distanceToMouse = getDistance(
+            { x: point.originX, y: point.originY },
+            mousePoint
+          );
+          if (distanceToMouse <= settings.attractionRange) {
+            displacementFactor =
+              ((Math.cos(
+                (distanceToMouse / settings.attractionRange) * Math.PI
+              ) +
+                1) /
+                2) *
+              settings.attractionFactor;
+            attractionOffset.x =
+              displacementFactor * (mousePoint.x - point.x);
+            attractionOffset.y =
+              displacementFactor * (mousePoint.y - point.y);
+          }
+
+          point.x =
+            point.originX +
+            Math.sin(elapsed * settings.velocity + point.animOffset) *
+            settings.maxMovement *
+            point.sizeMod +
+            attractionOffset.x;
+          point.y =
+            point.originY -
+            Math.cos(elapsed * settings.velocity + point.animOffset) *
+            settings.maxMovement *
+            point.sizeMod +
+            attractionOffset.y;
+
+          point.flashOpacity = Math.max(
+            0,
+            point.flashOpacity - settings.flashDecay * delta
+          );
+        }
+
+        // Move particles
+        for (var i = 0; i < particles.length; i++) {
+          var particle = particles[i];
+
+          var origin = points[particle.origin];
+          var target = origin.closest[particle.target];
+
+          var distance = getDistance(
+            { x: origin.x, y: origin.y },
+            { x: target.x, y: target.y }
+          );
+          var direction = {
+            x: (target.x - origin.x) / distance,
+            y: (target.y - origin.y) / distance,
+          };
+
+          particle.traveled += settings.particleVelocity * delta;
+          particle.direction = direction;
+
+          particle.x = origin.x + direction.x * particle.traveled;
+          particle.y = origin.y + direction.y * particle.traveled;
+
+          if (!between(origin, { x: particle.x }, target)) {
+            particles.splice(i, 1);
+            i--;
+          }
+        }
+
+        // Spawn new particles
+        for (var i = 0; i < settings.particleDensity * points.length; i++) {
+          if (Math.random() < settings.particleChance * delta) {
+            var pOriginNum = Math.floor(Math.random() * points.length);
+            var pOrigin = points[pOriginNum];
+            var pTargetNum = Math.floor(
+              Math.random() * pOrigin.closest.length
+            );
+            var px = pOrigin.x;
+            var py = pOrigin.y;
+            var p = {
+              origin: pOriginNum,
+              target: pTargetNum,
+              x: px,
+              y: py,
+              traveled: 0,
+              direction: { x: 0, y: 0 },
+            };
+            particles.push(p);
+            pOrigin.flashOpacity = settings.flashOpacity;
+          }
+        }
+
+        drawFrame();
+
+        window.requestAnimationFrame(animate);
+      }
+
+      function handleMouseMove(event) {
+        mousePoint.x = event.pageX;
+        mousePoint.y = event.pageY;
+        // console.log(mousePoint.x, mousePoint.y);
+      }
+
+      function drawFrame() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (var i = 0; i < points.length; i++) {
+          drawLines(points[i]);
+        }
+
+        for (var i = 0; i < particles.length; i++) {
+          var particle = particles[i];
+          ctx.moveTo(particle.x, particle.y);
+          ctx.lineTo(
+            particle.x - particle.direction.x * settings.particleLength,
+            particle.y - particle.direction.y * settings.particleLength
+          );
+          ctx.strokeStyle = settings.particleColor;
+          ctx.stroke();
+        }
+
+        for (var i = 0; i < points.length; i++) {
+          var point = points[i];
+          if (point.flashOpacity > 0) {
+            ctx.beginPath();
+            ctx.rect(
+              point.x - settings.flashRadius,
+              point.y - settings.flashRadius,
+              settings.flashRadius * 2,
+              settings.flashRadius * 2
+            );
+            var gradient = ctx.createRadialGradient(
+              point.x,
+              point.y,
+              settings.flashRadius,
+              point.x,
+              point.y,
+              1
+            );
+            gradient.addColorStop(0, "rgba(255, 255, 255, 0)");
+            gradient.addColorStop(
+              1,
+              "rgba(255, 255, 255, " + point.flashOpacity + ")"
+            );
+            ctx.fillStyle = gradient;
+            ctx.fill();
+          }
+          ctx.drawImage(
+            img,
+            point.x - point.w / 2,
+            point.y - point.h / 2,
+            point.w,
+            point.h
+          );
+        }
+      }
+
+      function drawLines(p) {
+        for (var i in p.closest) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p.closest[i].x, p.closest[i].y);
+          ctx.strokeStyle = settings.lineColor;
+          ctx.stroke();
+        }
+      }
+
+      //Util
+      function getDistance(p1, p2) {
+        return Math.sqrt(Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2));
+      }
+
+      function contains(a, obj) {
+        if (a !== undefined) {
+          for (var i = 0; i < a.length; i++) {
+            if (a[i] === obj) {
+              return true;
+            }
+          }
+        }
+        return false;
+      }
+
+      function between(p1, p2, t) {
+        return (p1.x - p2.x) * (p2.x - t.x) > 0;
+      }
+    };
+  </script>
+{% endblock %}

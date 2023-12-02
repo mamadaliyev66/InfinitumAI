@@ -1,0 +1,338 @@
+{% extends 'base.html' %}
+  {% block title %}Order{% endblock %}
+{% block head %}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="https://firebasestorage.googleapis.com/v0/b/infinitumai.appspot.com/o/white_logo_transparent.ico?alt=media&token=f0a4ff7b-a6cc-4e87-b3a4-b366ea5352d2"
+      type="image/x-icon"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      body,
+      html {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        min-width: 100%;
+        min-height: 100%;
+      }
+
+      main {
+        z-index: 1;
+      }
+
+      body {
+        background: #000;
+      }
+
+      body::after {
+        display: block;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        content: "";
+      }
+
+      /* Add your navbar styles here */
+      .nav-bar {
+        position: fixed;
+        z-index: 99999;
+        /* Ensure the button is above other elements */
+
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #111827;
+        transition: top 0.3s;
+        /* Smooth transition for the navbar */
+      }
+
+      .hidden {
+        top: -100px;
+        /* Hides the navbar above the viewport */
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 12px;
+        /* Width of the scrollbar */
+        height: 2px;
+        /* Height of the scrollbar */
+        box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+        /* Shadow for the scrollbar */
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        /* Track color */
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+        /* Thumb color */
+        border-radius: 6px;
+        /* Roundness of the thumb */
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+        /* Thumb color on hover */
+      }
+
+      /* For Firefox */
+      /* You can modify these styles to suit your design */
+      /* Firefox uses a different approach to style scrollbars */
+      /* You can adjust colors, widths, etc. as desired */
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: #0074d9;
+      }
+
+      *::-webkit-scrollbar {
+        width: 4px;
+        /* Width of the scrollbar */
+        height: 2px;
+        /* Height of the scrollbar */
+        box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+        /* Shadow for the scrollbar */
+      }
+
+      *::-webkit-scrollbar-track {
+        background: transparent;
+        /* Track color */
+      }
+
+      *::-webkit-scrollbar-thumb {
+        background: #fff;
+        /* Thumb color */
+        border-radius: 6px;
+        /* Roundness of the thumb */
+      }
+
+      *::-webkit-scrollbar-thumb:hover {
+        background: #555;
+        /* Thumb color on hover */
+      }
+      [x-cloak] {
+        display: none;
+      }
+
+      input{
+        background-color: transparent;
+        text-decoration: underline solid gray;
+        transition: all .3s ease-in-out;
+      }
+      input:focus {
+        outline: none;
+        color: #0074d9;
+        text-decoration: underline solid #0074d9;
+        transition: all .3s ease-in-out;
+
+      }
+      input:focus::placeholder {
+  color: #0074d9;
+  transition: all .3s ease-in-out;
+
+}
+
+      /* End */
+    </style>
+{% endblock %}
+
+{% block content %}
+    <main>
+      <div
+        class="object-cover w-full bg-center bg-cover h-[35rem]"
+        style="
+          background-image: url(https://www.nowcommerce.com/hubfs/business_188.jpg);
+        "
+      >
+        <div
+          class="flex items-center justify-center w-full h-full bg-blue-800 bg-opacity-50"
+        >
+          <div class="text-center">
+            <h1 class="text-2xl font-semibold text-white uppercase lg:text-3xl">
+              Order
+            </h1>
+          </div>
+        </div>
+      </div>
+
+      <!-- order section -->
+      <section>
+        <div class="ContactBannerColLeft w-screen wrapLeft bg-gray-800 text-white   pb-20 h-screen xl:text-4xl xl:pl-20 xl:pr-20 " >
+            <h1 class="text-6xl text-center mb-16 pt-16"> Order</h1>
+         <div class="grid xl:grid-cols-3 xl:gap-2">
+            
+            <div class="ContactFormBox h-full  bg-gray-900 rounded-xl xl:p-20 p-3 space-y-6 col-span-2">
+                    <div >
+                                <div
+                                class="field hs-firstname xl:flex "
+                                data-aos="fade-up"
+                                >
+                                <label>Hello there, my name is</label>
+                                        <div class="input">
+                                                        <input
+                                                        type="text"
+                                                        autocomplete="off"
+                                                        id="firstname"
+                                                        name="firstname"
+                                                        placeholder="Your name here"
+                                                        class="hs-input ml-3 bg-transparent w-full"
+                                                        value=""
+                                                        style="border: none !important;"
+                                                        />
+                                            </div>
+                                </div>
+                    </div>
+             
+                    <div>
+                                        <div
+                                        class="field hs-project "
+                                        data-aos="fade-up"
+                                        data-aos-delay="50"
+                                        class="flex"
+                                        >
+                                        <label>and i'm looking for a team to help me with </label>
+                                                    <div class="input">
+                                                        <input
+                                                        type="text"
+                                                        id="project"
+                                                        autocomplete="off"
+                                                        name="project"
+                                                        placeholder="Short project description..."
+                                                        class="hs-input  w-full"
+                                                        value=""
+                                                        />
+                                                    </div>
+                                        </div>
+                    </div>
+                    <div>
+                                                <div
+                                                class="field hs-phone xl:flex "
+                                                data-aos="fade-up"
+                                                data-aos-delay="100"
+                                                
+                                                >
+                                                <label>You can reach me at </label>
+                                                                    <div class="input">
+                                                                        <input
+                                                                        type="tel"
+                                                                        autocomplete="off"
+                                                                        id="phone"
+                                                                        name="phone"
+                                                                        placeholder="Your contact number"
+                                                                        class="hs-input  w-full  pl-3"
+                                                                        value=""
+                                                                        />
+                                                                    </div>
+                                                </div>
+                    </div>
+                    <div>
+                                                        <div
+                                                        class="field hs-email xl:flex "
+                                                        data-aos="fade-up"
+                                                        data-aos-delay="150"
+                                                        >
+                                                        <label>or</label>
+                                                                            <div class="input">
+                                                                                <input
+                                                                                type="email"
+                                                                                autocomplete="off"
+                                                                                id="email"
+                                                                                name="email"
+                                                                                placeholder="Your email address"
+                                                                                class="hs-input  w-full pl-6"
+                                                                                value=""
+                                                                                />
+                                                                            </div>
+                                                        </div>
+                    </div>
+                    <div>
+                                <div
+                                class="contact-submit "
+                                data-aos="fade-up"
+                                data-aos-delay="200"
+                                >
+                                <Button type="submit" class="hover:bg-[#0074d9] transition duration-3500 text-[#0074d9] hover:text-white border border-[#0074d9] p-4 rounded mt-20">Get In Touch!</Button>
+                                </div>
+                        
+                    </div>
+          </div>
+        <div class="xl:pt-64 ">
+            <img src="https://firebasestorage.googleapis.com/v0/b/infinitumai.appspot.com/o/logo_4.png?alt=media&token=cb3637d8-1847-42ac-a7d4-229a6d80e8c1" alt="">
+        </div>
+
+        </div>
+        </div>
+      </section>
+    </main>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+
+        // translate
+//   id="uztranslate"
+// id="rutranslate"
+// id="entranslate"
+
+
+      //   Drawer Menu
+
+      const mobileMenuButton = document.getElementById("mobileMenuButton");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      mobileMenuButton.addEventListener("click", function () {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      const mediaQuery = window.matchMedia("(min-width: 768px)");
+
+      function closeDrawerIfHidden() {
+        if (mediaQuery.matches && !mobileMenu.classList.contains("hidden")) {
+          mobileMenu.classList.add("hidden");
+        }
+      }
+
+      mediaQuery.addEventListener("change", closeDrawerIfHidden);
+      window.addEventListener("resize", closeDrawerIfHidden);
+
+      mobileMenu.addEventListener("click", function () {
+        mobileMenu.classList.add("hidden");
+      });
+
+      //   Navbar Scroll view
+
+      let prevScrollPos = window.pageYOffset;
+      const navbar = document.getElementById("navbar");
+      // navbar.style.top = "-100px"
+      window.onscroll = function () {
+        const currentScrollPos = window.pageYOffset;
+
+        if (prevScrollPos > currentScrollPos) {
+          navbar.style.top = "0"; // Show navbar if scrolling up
+        } else {
+          navbar.style.top = "-100px"; // Hide navbar if scrolling down
+        }
+
+        prevScrollPos = currentScrollPos;
+      };
+    </script>
+{% endblock %}

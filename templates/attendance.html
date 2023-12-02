@@ -1,0 +1,282 @@
+{% extends 'base.html' %}
+  {% block title %}Attendance{% endblock %}
+{% block head %}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet" />
+  <link rel="shortcut icon"
+    href="https://firebasestorage.googleapis.com/v0/b/infinitumai.appspot.com/o/white_logo_transparent.ico?alt=media&token=f0a4ff7b-a6cc-4e87-b3a4-b366ea5352d2"
+    type="image/x-icon" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    
+    body,
+    html {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      min-width: 100%;
+      min-height: 100%;
+    }
+
+    main {
+      z-index: 1;
+    }
+
+    body {
+      background: #000;
+    }
+
+
+    body::after {
+      display: block;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      content: "";
+    }
+
+    /* Add your navbar styles here */
+    .nav-bar {
+      position: fixed;
+      z-index: 99999;
+      /* Ensure the button is above other elements */
+
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #111827;
+      transition: top 0.3s;
+      /* Smooth transition for the navbar */
+    }
+
+    .hidden {
+      top: -100px;
+      /* Hides the navbar above the viewport */
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 12px;
+      /* Width of the scrollbar */
+      height: 2px;
+      /* Height of the scrollbar */
+      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+      /* Shadow for the scrollbar */
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      /* Track color */
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      /* Thumb color */
+      border-radius: 6px;
+      /* Roundness of the thumb */
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+      /* Thumb color on hover */
+    }
+
+    /* For Firefox */
+    /* You can modify these styles to suit your design */
+    /* Firefox uses a different approach to style scrollbars */
+    /* You can adjust colors, widths, etc. as desired */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #0074d9;
+    }
+
+    *::-webkit-scrollbar {
+      width: 4px;
+      /* Width of the scrollbar */
+      height: 2px;
+      /* Height of the scrollbar */
+      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+      /* Shadow for the scrollbar */
+    }
+
+    *::-webkit-scrollbar-track {
+      background: transparent;
+      /* Track color */
+    }
+
+    *::-webkit-scrollbar-thumb {
+      background: #fff;
+      /* Thumb color */
+      border-radius: 6px;
+      /* Roundness of the thumb */
+    }
+
+    *::-webkit-scrollbar-thumb:hover {
+      background: #555;
+      /* Thumb color on hover */
+    }
+    [x-cloak] { display: none; }
+    /* End */
+  </style>
+{% endblock %}
+{% block content %}
+  <main >
+   
+    <div class="object-cover w-full bg-center bg-cover h-[45rem] "
+    style="background-image: url(https://www.brsoftech.com/blog/wp-content/uploads/2022/01/what-is-face-recognition.jpg);">
+    <div class="flex items-center justify-center w-full h-full bg-blue-800 bg-opacity-50 ">
+        <div class="text-center">
+            <h1 class="text-2xl font-semibold text-white uppercase lg:text-3xl">Attendance Assisant </h1>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- product section -->
+
+
+<section class="pb-11 dark:bg-white pb-16">
+    
+    <div class="max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-[70%,1fr]  gap-4  pt-9 pb-7">
+            <div>
+                <div class="p-4 ">
+                    <nav class="flex mb-4">
+                        
+                    </nav>
+                    <img src="https://firebasestorage.googleapis.com/v0/b/infinitumai.appspot.com/o/as.png?alt=media&token=97fb080a-e723-48f5-a991-1976ba5ed05a" alt=""
+                        class=" w-full rounded-md h-96">
+                    
+                    <h2 class="mb-4 text-2xl font-semibold font-poppins mt-6 text-gray-800">
+                        Attendance Assisant</h2>
+                    <div class=" font-poppins dark:text-gray-600">
+                        <p> Experience seamless attendance tracking with our Attendance Assistant—a smart solution designed to simplify workforce management. Our system utilizes cutting-edge facial recognition technology for accurate and hassle-free attendance marking
+                            </p>
+                        <blockquote
+                            class="p-6 my-4 italic  border-l-4 border-blue-500 border-blue- ">
+                            Efficiency in attendance tracking isn't just a goal; it's a necessity. Our Attendance Assistant system redefines workforce management, simplifying attendance tracking with cutting-edge technology    
+                        </blockquote>
+                        <p class="pb-4"> 
+                            With real-time monitoring and customizable alerts for late arrivals or absences, managing attendance becomes effortless. Integrate it seamlessly with your existing systems and access detailed reports and analytics for better decision-making.
+
+                        </p>
+                        <p>Efficiency, accuracy, and ease-of-use define our Attendance Assistant. Say goodbye to manual tracking and hello to streamlined attendance management for enhanced productivity."
+
+
+
+
+
+
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </main>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+  {% block scripts %}
+  <script>
+      // translate
+//   id="uztranslate"
+// id="rutranslate"
+// id="entranslate"
+  document.getElementById('uztranslate').addEventListener("click",()=>{
+    window.location.href="https://infinitumai-w3spaces-com.translate.goog/?_x_tr_sl=en&_x_tr_tl=uz&_x_tr_hl=en&_x_tr_pto=wapp"
+  });
+  
+  document.getElementById('rutranslate').addEventListener("click",()=>{
+    window.location.href="https://infinitumai-w3spaces-com.translate.goog/?_x_tr_sl=en&_x_tr_tl=ru&_x_tr_hl=en&_x_tr_pto=wapp"
+  });
+
+  document.getElementById('entranslate').addEventListener("click",()=>{
+    window.location.href="https://infinitumai.w3spaces.com"
+  });
+
+
+    //   Drawer Menu
+    const mobileMenuButton = document.getElementById("mobileMenuButton");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    mobileMenuButton.addEventListener("click", function () {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+
+    function closeDrawerIfHidden() {
+      if (mediaQuery.matches && !mobileMenu.classList.contains("hidden")) {
+        mobileMenu.classList.add("hidden");
+      }
+    }
+
+    mediaQuery.addEventListener("change", closeDrawerIfHidden);
+    window.addEventListener("resize", closeDrawerIfHidden);
+
+    mobileMenu.addEventListener("click", function () {
+      mobileMenu.classList.add("hidden");
+    });
+
+    //   Navbar Scroll view
+
+    let prevScrollPos = window.pageYOffset;
+    const navbar = document.getElementById("navbar");
+    // navbar.style.top = "-100px"
+    window.onscroll = function () {
+      const currentScrollPos = window.pageYOffset;
+
+      if (prevScrollPos > currentScrollPos) {
+        navbar.style.top = "0"; // Show navbar if scrolling up
+      } else {
+        navbar.style.top = "-100px"; // Hide navbar if scrolling down
+      }
+
+      prevScrollPos = currentScrollPos;
+    };
+
+    
+  </script>
+    {% endblock %}

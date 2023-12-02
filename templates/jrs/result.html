@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JRS</title>
+    
+
+    <!-- fontawsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+      <!-- google fonts Poppins -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    
+    
+    <!-- favicon -->
+    <link rel="shortcut icon"
+      href="https://firebasestorage.googleapis.com/v0/b/infinitumai.appspot.com/o/white_logo_transparent.ico?alt=media&token=f0a4ff7b-a6cc-4e87-b3a4-b366ea5352d2"
+      type="image/x-icon" />
+
+    <!-- tailwind css -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <!-- particle js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js" integrity="sha512-jq8sZI0I9Og0nnZ+CfJRnUzNSDKxr/5Bvha5bn7AHzTnRyxUfpUArMzfH++mwE/hb2efOo1gCAgI+1RMzf8F7g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+
+
+    <style>
+       
+
+        /* custom scrollbar */
+        ::-webkit-scrollbar {
+      width: 12px;
+      /* Width of the scrollbar */
+      height: 2px;
+      /* Height of the scrollbar */
+      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+      /* Shadow for the scrollbar */
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      /* Track color */
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      /* Thumb color */
+      border-radius: 6px;
+      /* Roundness of the thumb */
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+      /* Thumb color on hover */
+    }
+
+    /* For Firefox */
+    /* You can modify these styles to suit your design */
+    /* Firefox uses a different approach to style scrollbars */
+    /* You can adjust colors, widths, etc. as desired */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #0074d9;
+    }
+
+    *::-webkit-scrollbar {
+      width: 4px;
+      /* Width of the scrollbar */
+      height: 2px;
+      /* Height of the scrollbar */
+      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+      /* Shadow for the scrollbar */
+    }
+
+    *::-webkit-scrollbar-track {
+      background: transparent;
+      /* Track color */
+    }
+
+    *::-webkit-scrollbar-thumb {
+      background: #fff;
+      /* Thumb color */
+      border-radius: 6px;
+      /* Roundness of the thumb */
+    }
+
+    *::-webkit-scrollbar-thumb:hover {
+      background: #555;
+      /* Thumb color on hover */
+    }
+        /* custom scrollbar */
+    .getstartedButton:hover{
+        box-shadow: 0px 0px 30px #0074d9;
+    }
+
+    /* arrow animation */
+    .rightArrowAnimation{
+        animation: moveright 1s ease-in-out infinite  alternate;
+       
+    }
+
+    @keyframes moveright {
+      0% {
+        transform: translateX(0);
+        /* Initial position */
+      }
+
+      100% {
+        transform: translateX(50px);
+        filter: drop-shadow(0px 0px 5px #ffffff);
+         display: none;
+        /* Final position */
+      }
+    }
+
+    </style>
+</head>
+<body class="bg-[#1a193b]">
+    
+    <!-- navbar -->
+
+
+
+
+
+<main class="mb-20">
+
+        <!-- particles.js container --> 
+            
+           
+            <div class=" md:m-20 m-3">
+
+                       
+                        <h2 class="text-xl space-y-2 sm:flex space-x-2 sm:text-3xl text-white text-center w-full mt-6 ml-0 md:mt-20 ">
+                            Your Skills:
+                            {% for skil in Skills %}
+                            <div class="text-xl border border-white  p-2 rounded-xl ml-2">{{ skil }}</div>
+
+                            {% endfor %}
+                        </h2>
+
+
+            </div>
+            <div>
+                    <div class=" mt-16 sm:ml-20 ml-6">
+                        <h1 class="text-white md:text-3xl text-xl">Recommended Jobs : </h1>
+                    </div>
+                    <div class="grid md:grid-cols-3   grid-cols-1 gap-3 ml-6 mr-6 mt-6">
+                        <div class="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] hover:shadow hover:shadow-xl hover:shadow-white" >
+                            <div
+                                class="border-b-2 border-neutral-100 px-6 py-3 font-bold text ">
+                                Full Stack Web Developer
+                            </div>
+                            <div class="p-6">
+                                <blockquote>
+                                <p class="text-xl">
+                                    A full-stack developer is a developer or engineer who can build both the front end and the back end of a website. The front end (the parts of a website a user sees and interacts with) and the back end (the behind-the-scenes data storage and processing) require different skill sets.                                </p>
+                                </blockquote>
+                                <figcaption class="text-md text-neutral-600 mt-3 space-y-3">
+                                    Required skills:  
+                                        <div class="border border-gray-800 p-1 rounded-xl text-gray-800 font-bold ">HTML/CSS</div>
+                                        <div class="border border-gray-800 p-1 rounded-xl text-gray-800 font-bold ">JavaScript</div>
+                                        <div class="border border-gray-800 p-1 rounded-xl text-gray-800 font-bold ">Frontend frameworks</div>
+                                        <div class="border border-gray-800 p-1 rounded-xl text-gray-800 font-bold ">Backend technologies</div>
+                                        <div class="border border-gray-800 p-1 rounded-xl text-gray-800 font-bold ">Databases and web storage</div>
+                                        <div class="border border-gray-800 p-1 rounded-xl text-gray-800 font-bold ">Git/GitHub</div>
+                                        <div class="border border-gray-800 p-1 rounded-xl text-gray-800 font-bold ">HTTP and REST</div>
+                                        
+                                   
+                                </figcaption>
+                            </div>
+                        </div>
+                        
+
+                    </div>
+            </div>
+           
+            
+        
+        
+    </main>
+    
+
+    
+
+
+
+
+
+
+
+</body>
+</html>
